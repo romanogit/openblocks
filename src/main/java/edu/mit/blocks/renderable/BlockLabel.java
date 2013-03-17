@@ -268,6 +268,7 @@ public class BlockLabel implements MouseListener, MouseMotionListener, KeyListen
             Block oldBlock = workspace.getEnv().getBlock(blockID);
             oldBlock.changeGenusTo(genus);
             RenderableBlock rb = workspace.getEnv().getRenderableBlock(blockID);
+            rb.setBlockToolTip(oldBlock.getBlockDescription());
             rb.repaintBlock();
             workspace.notifyListeners(new WorkspaceEvent(workspace, rb.getParentWidget(), blockID, WorkspaceEvent.BLOCK_GENUS_CHANGED));
         }
